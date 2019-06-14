@@ -31,7 +31,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:id="@+id/recycler_view"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:padding="10dp">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -26,6 +27,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -143,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+
+            //pengurutan listFolder dan listFile
+            Collections.sort(listFolder);
+            Collections.sort(listFile);
+
+
             for(int i=0;i<listFolder.size();i++){
                 imageLists.add(new Image_List(listFolder.get(i).getName()));
             }
@@ -184,10 +193,12 @@ public class MainActivity extends AppCompatActivity {
 
     //untuk storage permission
     public void reqpermission() {
-        int reqEX = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (reqEX != PackageManager.PERMISSION_GRANTED) {
-            //requestPermission = Asynchronous
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQ_PERMISSION);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            int reqEX = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (reqEX != PackageManager.PERMISSION_GRANTED) {
+                //requestPermission = Asynchronous
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQ_PERMISSION);
+            }
         }
     }
 

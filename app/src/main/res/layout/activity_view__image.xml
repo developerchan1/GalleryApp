@@ -22,12 +22,11 @@
                     android:backgroundTint="#ffffff"
                     android:id="@+id/btn_back"/>
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
-                    android:text = "OOOOOOOOOOOOOOOOOOOOOOOO"
+                    android:text = ""
                     android:layout_marginLeft="20dp"
                     android:textSize="20sp"
                     android:id="@+id/tv_imageName"/>
@@ -38,11 +37,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-                <ImageView
+                <com.jsibbold.zoomage.ZoomageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:id="@+id/image"
+                    app:zoomage_restrictBounds="false"
+                    app:zoomage_animateOnReset="true"
+                    app:zoomage_autoResetMode="UNDER"
+                    app:zoomage_autoCenter="true"
+                    app:zoomage_zoomable="true"
+                    app:zoomage_translatable="true"
+                    app:zoomage_minScale="0.6"
+                    app:zoomage_maxScale="8"
                     />
         </LinearLayout>
 

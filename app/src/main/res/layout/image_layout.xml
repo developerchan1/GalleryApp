@@ -24,6 +24,7 @@
                 android:id="@+id/imageName"
                 android:textSize="15sp"
                 android:textColor="#000000"/>
+
         </LinearLayout>
 
 
